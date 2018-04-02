@@ -1,0 +1,40 @@
+name: ${name}
+version: ${version}
+main: ${groupId}.${artifactId}.${name}Plugin
+description: ${description}
+author: ${author}
+commands:
+    whitelist:
+        description: Base command
+        usage: /<command> [add|remove|info|list] [playername|page]
+        aliases: [wlist, whitel, wl]
+        permission: whitelist.command
+permissions:
+    whitelist.command:
+        description: Base permission
+        default: true
+    whitelist.add:
+        description: Permission for /whitelist add <player>
+        default: op
+    whitelist.remove:
+        description: Permission for /whitelist remove <player>
+        default: op
+    whitelist.list:
+        description: Permission for /whitelist list [page]
+        default: true
+    whitelist.info:
+        description: Permission for /whitelist info <player>
+        default: true
+    whitelist.exempt:
+        description: Players with this permission cannot be removed from the whitelist
+        default: op
+    whitelist.*:
+        description: Master permission
+        default: op
+        children:
+            whitelist.command: true
+            whitelist.add: true
+            whitelist.remove: true
+            whitelist.list: true
+            whitelist.info: true
+            whitelist.exempt: true
