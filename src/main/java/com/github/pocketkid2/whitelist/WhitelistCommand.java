@@ -74,7 +74,9 @@ public class WhitelistCommand implements CommandExecutor {
 					List<UUID> list = plugin.getWhitelistManager().all();
 					int size = list.size();
 					int max = plugin.getSize();
-					if (size > max) {
+					if (size == 0) {
+						sender.sendMessage(Messages.WHITELIST_EMPTY);
+					} else if (size > max) {
 						int pages = size / max;
 						if ((size % max) != 0) {
 							pages++;
@@ -103,6 +105,7 @@ public class WhitelistCommand implements CommandExecutor {
 							sender.sendMessage(Bukkit.getOfflinePlayer(id).getName());
 						}
 					} else {
+						sender.sendMessage(String.format(Messages.DISPLAYING_PAGE, 1, 1));
 						for (UUID id : list) {
 							sender.sendMessage(Bukkit.getOfflinePlayer(id).getName());
 						}
