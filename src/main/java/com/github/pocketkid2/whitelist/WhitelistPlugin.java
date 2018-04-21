@@ -9,6 +9,7 @@ public class WhitelistPlugin extends DatabasePlugin {
 
 	private WhitelistManager manager;
 	private String message;
+	private int size;
 
 	@Override
 	public void onEnable() {
@@ -16,6 +17,7 @@ public class WhitelistPlugin extends DatabasePlugin {
 		message = getConfig().getString("disallow-message");
 		Database.register(this);
 		manager = new WhitelistManager(this);
+		getCommand("whitelist").setExecutor(new WhitelistCommand(this));
 		Bukkit.getPluginManager().registerEvents(new WhitelistListener(this), this);
 		getLogger().info("Done!");
 	}
@@ -31,6 +33,10 @@ public class WhitelistPlugin extends DatabasePlugin {
 
 	public String getMessage() {
 		return message;
+	}
+
+	public int getSize() {
+		return size;
 	}
 
 }

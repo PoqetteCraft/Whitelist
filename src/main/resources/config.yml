@@ -4,3 +4,6 @@
 
 # What message should we display to players who aren't whitelisted?
 disallow-message: "Sorry, you're not whitelisted on this server!"
+
+# How many players should we display on one page?
+page-size: 10
