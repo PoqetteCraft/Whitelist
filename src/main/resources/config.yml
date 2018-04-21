@@ -1,0 +1,6 @@
+# ------------------------------------
+#   Configuration file for Whitelist
+# ------------------------------------
+
+# What message should we display to players who aren't whitelisted?
+disallow-message: "Sorry, you're not whitelisted on this server!"
